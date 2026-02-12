@@ -25,7 +25,39 @@ Nmap scan report for 192.168.1.5
 PORT     STATE SERVICE
 445/tcp  open  microsoft-ds
 
- 🧠 Interview Questions & Answers
+
+Scan Results Summary
+The scan detected multiple active hosts with open ports such as:
+
+22 (SSH)
+
+80 (HTTP)
+
+443 (HTTPS)
+
+445 (SMB)
+
+Detailed scan output is available in scan-results.txt.
+
+Security Risks Identified
+Open ports expose services to the network
+
+Vulnerable services can be exploited
+
+Increased attack surface for attackers
+
+Security Mitigation
+Close unused ports
+
+Configure firewall rules
+
+Use strong authentication
+
+Apply regular patches
+
+
+
+Interview Questions & Answers
 1. What is an open port?
 An open port is a network port that is actively listening and accepting incoming
 connections from other systems.
