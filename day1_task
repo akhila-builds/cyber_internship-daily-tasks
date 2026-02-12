@@ -1,6 +1,7 @@
 Network Port Scanning using Nmap
-This project demonstrates basic network reconnaissance by scanning a local network to identify active hosts, open ports, and running services. The task helps in understanding network exposure and potential security risks.Objective
-To discover open ports on devices within a local network and analyze associated security risks.
+This project demonstrates basic network reconnaissance by scanning a local network to identify active hosts, open ports, and running services.
+The task helps in understanding network exposure and potential security risks.Objective
+
 
 Tools Used: Nmap (Port scanning and service discovery)
 
@@ -9,3 +10,17 @@ Local IP Range: 192.168.1.0/24
 Scan Type: TCP SYN Scan
 Scan Command Used
 nmap -sS 192.168.1.0/24
+
+
+result:
+
+
+Nmap scan report for 192.168.1.1
+PORT     STATE SERVICE
+22/tcp   open  ssh
+80/tcp   open  http
+443/tcp  open  https
+
+Nmap scan report for 192.168.1.5
+PORT     STATE SERVICE
+445/tcp  open  microsoft-ds
