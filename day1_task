@@ -24,3 +24,33 @@ PORT     STATE SERVICE
 Nmap scan report for 192.168.1.5
 PORT     STATE SERVICE
 445/tcp  open  microsoft-ds
+
+ 🧠 Interview Questions & Answers
+1. What is an open port?
+An open port is a network port that is actively listening and accepting incoming
+connections from other systems.
+
+2. How does Nmap perform a TCP SYN scan?
+Nmap sends a SYN packet to the target port. A SYN-ACK response indicates the port
+is open, while an RST response indicates it is closed.
+
+3. What risks are associated with open ports?
+Unauthorized access, service exploitation, information leakage, and malware entry.
+
+4. Difference between TCP and UDP scanning?
+TCP scanning is connection-oriented and more reliable, while UDP scanning is
+connectionless and slower with less reliable responses.
+
+5. How can open ports be secured?
+By closing unused ports, using firewalls, enabling authentication, and keeping
+services updated.
+
+6. What is a firewall’s role?
+A firewall controls traffic by allowing or blocking access to ports based on rules.
+
+7. Why do attackers perform port scans?
+To identify open services and plan attacks.
+
+8. How does Wireshark help?
+It captures network packets and helps analyze TCP handshake and scan behavior.
+
