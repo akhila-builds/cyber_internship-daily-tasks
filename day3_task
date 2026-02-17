@@ -1,0 +1,181 @@
+This project demonstrates a basic vulnerability assessment performed on a local machine using a free vulnerability scanning tool. The objective was to identify security weaknesses, analyze their severity, and recommend remediation steps.
+
+Tool Used: Nessus Essentials
+Scan Target: 127.0.0.1 (Localhost)
+Scan Type: Full System Scan
+Scan Duration: ~45 minutes
+
+Methodology
+Installed Nessus Essentials.
+
+Updated vulnerability database plugins.
+
+Configured scan target as localhost (127.0.0.1).
+
+Performed a full vulnerability scan.
+
+Analyzed vulnerabilities based on severity and CVSS score.
+
+Researched remediation strategies for high and critical issues.
+
+Documented findings and recommendations.
+
+Scan Summary
+Severity	Count
+Critical	1
+High	3
+Medium	6
+Low	9
+Informational	14
+
+Critical and High-Risk Findings
+1. Outdated Software Detected (High Severity)
+Description:
+Multiple applications were running outdated versions with publicly disclosed vulnerabilities.
+
+Risk:
+Potential Remote Code Execution (RCE) and privilege escalation.
+
+CVSS Score: 8.8 (High)
+
+Remediation:
+
+Update all affected software to the latest stable version.
+
+Enable automatic update mechanisms.
+
+2. SMB Signing Not Enforced (Medium/High)
+Description:
+Server Message Block (SMB) signing was not required.
+
+Risk:
+Susceptible to Man-in-the-Middle (MITM) attacks.
+
+Remediation:
+
+Enable SMB signing via system security policies.
+
+Disable SMBv1 protocol if enabled.
+
+3. Open Ports Exposing Services
+Detected Open Ports:
+
+445 (SMB)
+
+135 (RPC)
+
+Risk:
+Increases attack surface and allows enumeration by attackers.
+
+Remediation:
+
+Disable unnecessary services.
+
+Configure firewall rules to restrict access.
+
+Close unused ports.
+
+4. Weak TLS Configuration
+Description:
+TLS 1.0 and TLS 1.1 protocols were enabled.
+
+Risk:
+Vulnerable to downgrade and cryptographic attacks.
+
+Remediation:
+
+Disable TLS 1.0 and TLS 1.1.
+
+Enforce TLS 1.2 or higher.
+
+Risk Prioritization Approach
+Vulnerabilities were prioritized based on:
+
+CVSS score
+
+Exploit availability
+
+Network exposure
+
+Potential impact on confidentiality, integrity, and availability
+
+Key Concepts
+What is Vulnerability Scanning?
+Vulnerability scanning is an automated process used to detect known security weaknesses in systems, networks, or applications.
+
+Vulnerability Scanning vs Penetration Testing
+Vulnerability Scanning:
+
+Automated
+
+Identifies known vulnerabilities
+
+Broad coverage
+
+Penetration Testing:
+
+Manual and automated
+
+Attempts to exploit vulnerabilities
+
+Simulates real-world attacks
+
+Common PC Vulnerabilities
+Outdated operating systems
+
+Unpatched software
+
+Open ports and exposed services
+
+Weak encryption protocols
+
+Misconfigured system settings
+
+What is CVSS?
+CVSS (Common Vulnerability Scoring System) is a standardized framework used to assess the severity of security vulnerabilities. Scores range from 0 to 10.
+
+Severity Levels:
+
+0.0–3.9: Low
+
+4.0–6.9: Medium
+
+7.0–8.9: High
+
+9.0–10: Critical
+
+What is a False Positive?
+A false positive occurs when a vulnerability scanner incorrectly reports a vulnerability that does not actually exist.
+
+How to Prioritize Vulnerabilities
+Address Critical and High severity issues first.
+
+Consider exploit availability.
+
+Evaluate business or system impact.
+
+Fix externally exposed services before internal ones.
+
+Remediation Summary
+Updated outdated applications.
+
+Disabled legacy protocols.
+
+Closed unnecessary open ports.
+
+Strengthened local firewall configuration.
+
+Enabled automatic patch management.
+
+Conclusion
+This assessment provided practical exposure to vulnerability scanning tools and risk evaluation. The exercise improved understanding of:
+
+Automated vulnerability detection
+
+CVSS-based risk scoring
+
+System hardening techniques
+
+Basic remediation planning
+
+Regular vulnerability scanning is essential to maintain system security posture and reduce exposure to known threats.
