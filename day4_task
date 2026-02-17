@@ -1,0 +1,202 @@
+To configure and test basic firewall rules on Windows and Linux systems in order to understand how network traffic filtering works and how firewalls enhance system security.
+
+Tools Used
+Windows Defender Firewall (Windows 10/11)
+
+UFW (Uncomplicated Firewall) on Ubuntu Linux
+
+Part A: Linux Firewall Configuration Using UFW
+1. Check Firewall Status
+Command:
+
+bash
+Copy code
+sudo ufw status verbose
+If inactive:
+
+bash
+Copy code
+sudo ufw enable
+2. List Current Rules
+bash
+Copy code
+sudo ufw status numbered
+This displays all active firewall rules.
+
+3. Block Inbound Traffic on Port 23 (Telnet)
+bash
+Copy code
+sudo ufw deny 23
+Verify:
+
+bash
+Copy code
+sudo ufw status
+Expected Output:
+Port 23 should show as DENY.
+
+4. Test the Block Rule
+bash
+Copy code
+telnet localhost 23
+Expected Result:
+Connection refused or blocked.
+
+This confirms the firewall rule is working.
+
+5. Allow SSH (Port 22)
+bash
+Copy code
+sudo ufw allow 22
+Verify:
+
+bash
+Copy code
+sudo ufw status
+Port 22 should show as ALLOW.
+
+6. Remove Test Rule
+bash
+Copy code
+sudo ufw delete deny 23
+Confirm removal:
+
+bash
+Copy code
+sudo ufw status
+Part B: Windows Firewall Configuration
+1. Open Firewall Settings
+Control Panel
+→ Windows Defender Firewall
+→ Advanced Settings
+
+2. View Existing Rules
+Select:
+
+Inbound Rules
+
+Outbound Rules
+
+Review active entries.
+
+3. Create Rule to Block Port 23
+Steps:
+
+Click Inbound Rules
+
+Select New Rule
+
+Choose Port
+
+Select TCP
+
+Enter specific local port: 23
+
+Select Block the connection
+
+Apply to Domain, Private, and Public
+
+Name the rule: Block Telnet Port 23
+
+Finish setup.
+
+4. Test the Rule
+Open Command Prompt:
+
+nginx
+Copy code
+telnet localhost 23
+Expected Result:
+Connection fails.
+
+5. Remove the Rule
+Delete the created rule from Inbound Rules list.
+
+How Firewalls Filter Traffic
+A firewall evaluates traffic based on:
+
+Source IP address
+
+Destination IP address
+
+Port number
+
+Protocol (TCP/UDP)
+
+Connection state
+
+If traffic matches an allow rule, it is permitted.
+If traffic matches a deny rule or no rule, it is blocked.
+
+Most modern operating system firewalls are stateful, meaning they track active connections and allow return traffic automatically.
+
+Key Concepts
+What is a Firewall?
+A firewall is a network security system that monitors and controls incoming and outgoing traffic based on predefined rules.
+
+Difference Between Stateful and Stateless Firewall
+Stateless Firewall:
+
+Inspects packets individually
+
+Does not track session state
+
+Stateful Firewall:
+
+Tracks active sessions
+
+Makes decisions based on connection context
+
+More secure and intelligent
+
+Inbound vs Outbound Rules
+Inbound Rules:
+Control traffic entering the system.
+
+Outbound Rules:
+Control traffic leaving the system.
+
+Why Block Port 23 (Telnet)?
+Telnet:
+
+Sends data in plaintext
+
+No encryption
+
+Vulnerable to credential interception
+
+Secure alternative:
+SSH (Port 22)
+
+How UFW Simplifies Firewall Management
+UFW provides a simplified command interface for managing complex iptables rules.
+It reduces configuration errors and makes rule management easier.
+
+Common Firewall Mistakes
+Blocking SSH and losing remote access
+
+Leaving unnecessary ports open
+
+Forgetting to test rules
+
+Misconfigured rule priority
+
+Not removing temporary rules
+
+What is NAT in Firewalls?
+Network Address Translation (NAT) allows multiple internal devices to share a single public IP address. It hides internal IP addresses and adds a layer of protection.
+
+Learning Outcome
+Through this task, I:
+
+Configured firewall rules to allow and block traffic
+
+Tested rule effectiveness using local connection attempts
+
+Understood inbound and outbound filtering
+
+Gained practical experience with firewall management tools
+
+Learned how firewalls reduce attack surface
+
+This task strengthened foundational network security and traffic filtering knowledge.
