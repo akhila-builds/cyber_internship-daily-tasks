@@ -1,0 +1,144 @@
+Task 2 – Phishing Email Investigation Report
+
+Case Information
+Case ID: PH-2026-002
+
+Email Subject: Action Required: Password Reset Attempt
+
+Claimed Sender: IT Support Team
+
+Actual Sender: it-support@micros0ft-security.com
+
+Date Received: 17 Feb 2026
+
+Technical Email Header Investigation
+Key Header Fields Examined:
+Header Field	Observation	Risk
+From	micros0ft-security.com	Fake domain
+Reply-To	attacker123@gmail.com	Mismatch
+Return-Path	randomserver.ru	Suspicious origin
+SPF	Softfail	Authentication issue
+DKIM	None	No signature
+DMARC	Fail	Policy violation
+
+Finding:
+The email failed authentication checks (SPF, DKIM, DMARC), confirming spoofing.
+
+Domain Intelligence Analysis
+Suspicious Domain:
+micros0ft-security.com
+
+Observations:
+
+Uses “0” instead of “o” (typosquatting)
+
+Newly registered domain
+
+No official Microsoft ownership
+
+Threat Type:
+Typosquatting Attack (Look-alike domain)
+
+URL & Redirection Analysis
+Displayed Text:
+https://microsoft.com/reset
+
+Actual Hyperlink:
+http://micros0ft-security.com/reset-login
+
+Uses:
+HTTP (not HTTPS)
+Similar-looking domain
+Credential harvesting page
+
+Attachment Risk Analysis
+Attachment Name:
+
+Password_Reset_Form.html
+
+Risk Indicators:
+
+HTML attachments often contain credential harvesting forms
+
+Can redirect to phishing website
+
+No digital signature
+
+Behavioral & Social Engineering Analysis
+The email uses:
+
+Fear trigger → “Unauthorized login attempt detected”
+
+Urgency → “Reset password within 30 minutes”
+
+Authority → “Microsoft Security Department”
+
+Scarcity → “Account will be locked permanently”
+
+This manipulates emotional response before logical thinking.
+
+Attack Classification
+Category	Type
+Attack Type	Phishing
+Subtype	Credential Harvesting
+Technique	Email Spoofing
+Tactic	Social Engineering
+Delivery	Malicious Link
+
+Risk Impact Assessment
+If user clicks:
+
+Credentials stolen
+
+Account takeover
+
+Lateral movement possible
+
+Data breach risk
+
+Financial fraud risk
+
+Recommended Response (Incident Handling)
+Do not interact with email.
+
+Block sender domain.
+
+Report to SOC/IT.
+
+Run endpoint antivirus scan.
+
+Reset passwords (if clicked).
+
+Enable MFA immediately.
+
+Advanced Interview-Level Answers
+️What is phishing?
+Phishing is a social engineering attack where attackers impersonate trusted entities to trick users into revealing sensitive information or installing malware.
+
+️What is email spoofing?
+Email spoofing is forging the sender address in an email to make it appear as if it came from a legitimate source.
+
+️How do attackers bypass spam filters?
+Using look-alike domains
+
+Compromised legitimate accounts
+
+Sending low-volume targeted emails
+
+Using URL shorteners
+
+Embedding links inside images
+
+️How to technically verify sender authenticity?
+Check SPF, DKIM, DMARC results
+
+Validate domain registration age
+
+Compare return-path and reply-to
+
+Inspect originating IP reputation
+
+Use threat intelligence platforms
+
+️What is typosquatting?
+Registering domains similar to legitimate brands to trick users (example: micros0ft.com).
